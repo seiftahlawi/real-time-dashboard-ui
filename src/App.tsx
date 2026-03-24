@@ -18,9 +18,9 @@ export default function App() {
         </div>
       </header>
 
-      <main className="container mx-auto  py-8  lg:py-[3.333vw]   flex flex-col lg:flex-row gap-6 lg:gap-[1.25vw]">
+      <main className="container mx-auto  py-8  lg:py-[3.333vw]  justify-center  flex flex-col lg:flex-row gap-6 lg:gap-[1.25vw]">
     
-        <aside className="lg:w-[19vw]  lg:px-[1.25vw] shrink-0 lg:h-[33vw] lg:overflow-y-auto scrollbar-thin">
+        <aside className="lg:w-[19vw]  lg:px-[1.25vw] shrink-0 lg:h-[38vw] lg:overflow-y-auto scrollbar-thin">
          
           <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible scrollbar-thin pb-1 lg:pb-0 snap-x lg:snap-none snap-mandatory ">
             {tickerInfos.map(({ ticker, label, logo }) => (
@@ -39,7 +39,7 @@ export default function App() {
           </div>
         </aside>
 
-        <section className="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 lg:p-[1.25vw] shadow-sm  lg:h-[33vw] flex flex-col outline-none">
+        <section className="flex-1 bg-gray-900 rounded-xl border border-gray-800 p-4 lg:p-[1.25vw] shadow-sm  lg:h-[38vw] flex flex-col outline-none">
           <PriceChart ticker={selected} logo={selectedLogo} history={prices[selected]?.history ?? []} />
         </section>
       </main>
