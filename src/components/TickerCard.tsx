@@ -23,26 +23,26 @@ export default function TickerCard({ ticker, logo, state, selected, onClick }: P
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+      className={`w-full text-left p-4 lg:p-[0.833vw] rounded-xl lg:rounded-[0.625vw] border-2 transition-all duration-200 cursor-pointer ${
         selected
-          ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-md"
-          : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-blue-300 dark:hover:border-blue-600"
+          ? "border-blue-500  bg-blue-900/20 shadow-md"
+          : " border-gray-700  bg-gray-800  hover:border-blue-600"
       }`}
     >
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <img src={logo} alt={ticker} width={28} height={28} className="rounded-full shrink-0" />
+        <div className="flex items-center gap-2.5 lg:gap-[0.521vw]">
+          <img src={logo} alt={ticker} width={28} height={28} className="rounded-full h-auto lg:w-[2.5vw] shrink-0" />
           <div>
-            <p className="font-bold text-gray-900 dark:text-white text-sm">{ticker}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{LABELS[ticker]}</p>
+            <p className="font-bold  text-white text-lg lg:text-[1.042vw] lg:leading-[1.25vw]">{ticker}</p>
+            <p className="text-base  text-gray-400 lg:text-[0.833vw] lg:leading-[1.042vw]">{LABELS[ticker]}</p>
           </div>
         </div>
-        <div className="text-right">
-          <p className="font-mono font-semibold text-gray-900 dark:text-white text-sm">
+        <div className="flex flex-col items-end gap-1 lg:gap-[0.208vw]">
+          <p className="font-semibold  text-white text-base lg:text-[0.833vw] lg:leading-[1.042vw]">
             {price === 0 ? "—" : `$${price.toFixed(2)}`}
           </p>
           {price !== 0 && change !== 0 && (
-            <p className={`text-xs font-medium ${isUp ? "text-green-500" : "text-red-500"}`}>
+            <p className={`text-base lg:text-[0.833vw] lg:leading-[1.042vw] font-medium ${isUp ? "text-green-500" : "text-red-500"}`}>
               {isUp ? "▲" : "▼"} ${Math.abs(change).toFixed(2)}
             </p>
           )}
