@@ -3,11 +3,9 @@ import { useLivePrices } from "./hooks/useLivePrices";
 import TickerCard from "./components/TickerCard";
 import PriceChart from "./components/PriceChart";
 import StatusBadge from "./components/StatusBadge";
-import type { Ticker } from "./types";
-
 export default function App() {
   const { prices, tickerInfos, connected } = useLivePrices();
-  const [selected, setSelected] = useState<Ticker>("AAPL");
+  const [selected, setSelected] = useState<string>("AAPL");
 
   const selectedLogo = tickerInfos.find((t) => t.ticker === selected)?.logo ?? "";
 
@@ -25,10 +23,11 @@ export default function App() {
         <aside className="lg:w-[19vw]  lg:px-[1.25vw] shrink-0 lg:h-[33vw] lg:overflow-y-auto scrollbar-thin">
          
           <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible scrollbar-thin pb-1 lg:pb-0 snap-x lg:snap-none snap-mandatory ">
-            {tickerInfos.map(({ ticker, logo }) => (
+            {tickerInfos.map(({ ticker, label, logo }) => (
               <div key={ticker} className="snap-start shrink-0 w-64 lg:w-auto">
                 <TickerCard
                   ticker={ticker}
+                  label={label}
                   logo={logo}
                   state={prices[ticker]}
                   selected={selected === ticker}

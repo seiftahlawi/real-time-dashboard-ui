@@ -1,9 +1,8 @@
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
-import type { Ticker } from "../types";
 import type { PricePoint } from "../hooks/useLivePrices";
 
 interface Props {
-  ticker: Ticker;
+  ticker: string;
   logo: string;
   history: PricePoint[];
 }

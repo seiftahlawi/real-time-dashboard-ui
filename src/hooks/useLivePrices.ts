@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import type { PriceUpdate, Ticker, TickerInfo } from "../types";
+import type { PriceUpdate, TickerInfo } from "../types";
 import { getHistory } from "../services/history.service";
 import { getTickers } from "../services/ticker.service";
 
@@ -17,7 +17,7 @@ export interface TickerState {
   history: PricePoint[];
 }
 
-export type PriceMap = Record<Ticker, TickerState>;
+export type PriceMap = Record<string, TickerState>;
 
 export function useLivePrices() {
   const [prices, setPrices] = useState<PriceMap>({} as PriceMap);

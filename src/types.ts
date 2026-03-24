@@ -1,12 +1,11 @@
-export type Ticker = "AAPL" | "TSLA" | "BTC-USD";
-
 export interface PriceUpdate {
-  ticker: Ticker;
+  ticker: string;
   price: number;
   timestamp: number;
 }
 
 export interface TickerInfo {
-  ticker: Ticker;
+  ticker: string;
+  label: string;
   logo: string;
 }

@@ -1,9 +1,8 @@
 import axios, { AxiosError } from "axios";
-import type { Ticker } from "../types";
 
 const BASE_URL = "http://localhost:3000";
 
-export const getHistory = async (ticker: Ticker) => {
+export const getHistory = async (ticker: string) => {
   let response;
   try {
     response = await axios.get(`${BASE_URL}/history/${ticker}`);

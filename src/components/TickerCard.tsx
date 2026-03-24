@@ -1,21 +1,15 @@
-import type { Ticker } from "../types";
 import type { TickerState } from "../hooks/useLivePrices";
 
 interface Props {
-  ticker: Ticker;
+  ticker: string;
+  label: string;
   logo: string;
   state: TickerState | undefined;
   selected: boolean;
   onClick: () => void;
 }
 
-const LABELS: Record<Ticker, string> = {
-  AAPL: "Apple Inc.",
-  TSLA: "Tesla Inc.",
-  "BTC-USD": "Bitcoin",
-};
-
-export default function TickerCard({ ticker, logo, state, selected, onClick }: Props) {
+export default function TickerCard({ ticker, label, logo, state, selected, onClick }: Props) {
   const price = state?.price ?? 0;
   const change = price - (state?.prevPrice ?? price);
   const isUp = change >= 0;
@@ -34,7 +28,7 @@ export default function TickerCard({ ticker, logo, state, selected, onClick }: P
           <img src={logo} alt={ticker} width={28} height={28} className="rounded-full h-auto lg:w-[2.5vw] shrink-0" />
           <div>
             <p className="font-bold  text-white text-lg lg:text-[1.042vw] lg:leading-[1.25vw]">{ticker}</p>
-            <p className="text-base  text-gray-400 lg:text-[0.833vw] lg:leading-[1.042vw]">{LABELS[ticker]}</p>
+            <p className="text-base  text-gray-400 lg:text-[0.833vw] lg:leading-[1.042vw]">{label}</p>
           </div>
         </div>
         <div className="flex flex-col items-end gap-1 lg:gap-[0.208vw]">
